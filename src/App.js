@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import NoteArea from './components/NoteArea';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='scribble_title'>
+          <div className='scribble_letter'> S</div>
+          <div className='scribble_letter'> C</div>
+          <div className='scribble_letter'> R</div>
+          <div className='scribble_letter'> I</div>
+          <div className='scribble_letter'> B</div>
+          <div className='scribble_letter'> B</div>
+          <div className='scribble_letter'> B</div>
+          <div className='scribble_letter'> L </div>
+          <div className='scribble_letter'> E </div>
+        </div>
       </header>
+      <body>
+        <NoteArea />
+      </body>
+
+      <footer>
+
+      </footer>
     </div>
   );
 }
