@@ -18,10 +18,7 @@ function App() {
           <div className='scribble_letter'> E </div>
         </div>
       </header>
-      <body>
         <NoteArea />
-      </body>
-
       <footer>
 
       </footer>

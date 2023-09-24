@@ -35,21 +35,14 @@
     background: green;
   }
 
-  body {
-    display: flex;
-    justify-content: center;
-    height: calc(100% - 30%);
-  }
-
   .note_area {
     position: relative;
     background: green;
-    width: 95%;
-    height: 100%;
+    width: 85%;
+    aspect-ratio: 1/1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: baseline;
     overflow-y: scroll;
   }
 
@@ -71,6 +64,18 @@
     height: 23%;
     aspect-ratio: 1/1;
     margin: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .note .saved_note_title {
+    font-weight: bolder;
+  }
+
+  .note .saved_note_details {
+    white-space: pre-wrap;  
   }
 
   .note_editor {
@@ -88,15 +93,20 @@
     justify-content: space-around;
   }
 
-  .note_title{ 
+
+  .note_editor .note_details{ 
+    white-space: pre-wrap;
+  }
+
+  .note_title {
     height: 10%;
   }
 
-  .note_details{ 
+  .note_details {
     height: 55%;
   }
 
-  .editor_buttons{ 
+  .editor_buttons {
     display: flex;
     width: 100%;
     justify-content: space-around;

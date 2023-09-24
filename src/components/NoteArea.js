@@ -5,23 +5,32 @@ import NoteEditor from "./NoteEditor"
 export default function NoteArea() {
     let existingStorage = JSON.parse(localStorage.getItem('myNotes'))
     let [myNotes, setMyNotes] = useState(existingStorage ? existingStorage : [])
-    let [isEditor, setIsEditor] = useState(false)
+    let [isEditor, setIsEditor] = useState(null)
 
-    function editNote() {
-        setIsEditor(true)
+    function createNewNote() {
+        let noteObj = {
+            index: "new",
+            title: "",
+            details: ""
+        }
+        setIsEditor(noteObj)
     }
 
-    console.log(existingStorage)
+    function editExistingNote(e) {
+        let noteInfo = JSON.parse(localStorage.getItem('myNotes'))
+        let currentNote = noteInfo.find(obj => obj.index === e.target.dataset.uniqueid)
+        setIsEditor(currentNote)
+    }
+
     return (
         <div className="note_area">
 
-            <button className="add_note_button" onClick={editNote}> + </button>
+            <button className="add_note_button" onClick={createNewNote}> + </button>
             {myNotes.map((n, index) => {
-                console.log(n)
-                return <Note key={index} info={n} />
+                return <Note editExistingNote={editExistingNote} setIsEditor={setIsEditor} key={index} info={n} />
             })}
 
-            {isEditor && <NoteEditor setIsEditor={setIsEditor} setMyNotes={setMyNotes} />}
+            {isEditor && <NoteEditor isEditor={isEditor} setIsEditor={setIsEditor} setMyNotes={setMyNotes} />}
         </div>
     )
 }
